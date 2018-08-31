@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="32" tileheight="32" infinite="0" nextobjectid="1">
+ <tileset firstgid="1" source="tileset.tsx"/>
+ <layer name="Calque de Tile 1" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJzt0rENgEAIRmE20gE0cQD1JnBPbwS3kkI74Rr/RJNXfBXFC4FiZuXB7mowm93i1mD+Bvr06ev7tUHdPxqyfu/GgOoug+uufkbVv3ef3JZQ95W/T/+7fQAA8H8n27dI9Q==
+  </data>
+ </layer>
+ <layer name="Calque de Tile 2" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztlTdOBDEUQIfYL6kn9sSe2BMbKmLDGTgG4QLA7gGAOxB6FpaeIHqCkHgjrSVr+A4z46FhnvSkkf0937Ls/6MoDDVNnSu8DpQjC/f4gC3Yim3Yjh3YmfJfx4bxG8uaF3zFCnZhN/ZgL/ZpcbdNk+w3PcBDPBJiGpY9fuIX9uMADuIQDuOIZd/J/Cd4imceayRGcQzHcQIncUqIezTkP8cLvBTW3GE9+n33dKZxBmdxDudxQYh7E8aq2ve3MP+Ez46YRVzCZVzBVVyz7FdHuhc67/jhiNnATdzCbdzBXc/8MbazVVQd81lrQc3wnRZVC9IQsn6pWuBLfJ5Z9qxQ70KhakEabHted6xNvgsfTPVLYk8Y0+uHz7vIi/7W49xS/fDB1EN87rs6M5Vb6sMuGu6QP8NV7xQhenoeXD29aLL29FD49vSi8O3pRZGnp4cgb08vKSn53/wA38NUXg==
+  </data>
+ </layer>
+</map>
