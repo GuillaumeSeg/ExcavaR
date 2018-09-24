@@ -10,12 +10,12 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TiledMapRendererWithSprites extends OrthogonalTiledMapRenderer {
-    private Sprite sprite;
+@Deprecated
+public class TiledMapRenderer extends OrthogonalTiledMapRenderer {
     private List<Sprite> sprites;
-    private int drawSpritesAfterLayer = 1;
+    private int drawSpritesAfterLayer = 3;
 
-    public TiledMapRendererWithSprites(TiledMap map) {
+    public TiledMapRenderer(TiledMap map) {
         super(map);
         sprites = new ArrayList<Sprite>();
     }

@@ -6,8 +6,8 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.MapLayers;
@@ -19,14 +19,16 @@ import com.badlogic.gdx.maps.tiled.tiles.StaticTiledMapTile;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
 
+import eu.gsegado.models.Player;
+
 public class TiledMapFactory extends ApplicationAdapter implements InputProcessor {
     private OrthographicCamera camera;
-    private TiledMapRendererWithSprites renderer;
+    private TiledMapRenderer renderer;
     private SpriteBatch batch;
     private BitmapFont font;
     private Texture tiles;
     private TiledMap map;
-    private Player skeleton;
+    private eu.gsegado.models.Player skeleton;
 
     private TiledMapTileSet tilesetGrass;
 
@@ -51,6 +53,7 @@ public class TiledMapFactory extends ApplicationAdapter implements InputProcesso
 
         skeleton = new Player(0,1);  //y : (viewportHeight/2)+4 (centered)
         skeleton.setSpriteBatch(batch);
+        Sprite exit;
 
         {
             tiles = new Texture("forrestup.png");
@@ -63,6 +66,9 @@ public class TiledMapFactory extends ApplicationAdapter implements InputProcesso
             tilesetGrass.putTile(1, new StaticTiledMapTile(splitTiles[9][0]));
             tilesetGrass.putTile(2, new StaticTiledMapTile(splitTiles[9][1]));
             tilesetGrass.putTile(3, new StaticTiledMapTile(splitTiles[9][2]));
+            // Init exit
+            exit = new Sprite(splitTiles[8][0]);
+            exit.setPosition(MathUtils.random(0, 8*Gdx.graphics.getWidth()/Gdx.graphics.getHeight())*16, MathUtils.random(0, 8)*16);
 
             MapLayers layers = map.getLayers();
             for (int l = 0; l < 3; l++) {
@@ -77,8 +83,8 @@ public class TiledMapFactory extends ApplicationAdapter implements InputProcesso
                 layers.add(layer);
             }
         }
-        renderer = new TiledMapRendererWithSprites(map);
-        //renderer.addSprite(sprite);
+        renderer = new TiledMapRenderer(map);
+        renderer.addSprite(exit);
     }
 
 //

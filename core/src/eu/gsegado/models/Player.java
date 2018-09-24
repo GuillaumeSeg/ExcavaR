@@ -1,10 +1,13 @@
-package eu.gsegado;
+package eu.gsegado.models;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Interpolation;
+
+import eu.gsegado.AnimationSet;
+import eu.gsegado.DIRECTION;
 
 public class Player {
     private final static int FRAME_COLS = 4;
@@ -13,7 +16,6 @@ public class Player {
     private final Texture playerDownSheet;
     private final Texture playerRightSheet;
     private final Texture playerLeftSheet;
-    private TextureRegion[] character = new TextureRegion[2];
     private Animation<TextureRegion> downAnimation;
     private Animation<TextureRegion> upAnimation;
     private Animation<TextureRegion> rightAnimation;
@@ -30,15 +32,15 @@ public class Player {
     private float destX, destY;
     private SpriteBatch batch;
     private float stateTime;
-    private static float ANIM_TIME = 0.80f;
-    private static float WALKING_TIME = 0.75f;
+    private static float ANIM_TIME = 0.75f;
+    private static float WALKING_TIME = 0.70f;
 
     private float walkTimer;
     private boolean moveRequestThisFrame;
 
     private PLAYER_STATE state;
 
-    protected Player(int x, int y) {
+    public Player(int x, int y) {
         playerUpSheet   = new Texture("bones_up.png");
         playerDownSheet = new Texture("bones_down.png");
         playerRightSheet = new Texture("bones_side.png");
@@ -135,7 +137,11 @@ public class Player {
                 walkTimer -= leftOverTime;
                 finishMove();
                 if (moveRequestThisFrame) {
-                    move(facing);
+                    if (move(facing)) {
+                        stateTime += leftOverTime;
+                        worldX = Interpolation.bounce.apply(srcX, destX, stateTime / ANIM_TIME)*16;
+                        worldY = Interpolation.bounce.apply(srcY, destY, stateTime / ANIM_TIME)*16 + 4;
+                    }
                 } else {
                     walkTimer = 0.f;
                 }
@@ -197,14 +203,11 @@ public class Player {
     }
 
     public void render() {
-        //stateTime += Gdx.graphics.getDeltaTime();
         batch.draw(this.getSprite(), worldX, worldY);
     }
 
-    public TextureRegion getSprite() {
+    protected TextureRegion getSprite() {
         if (state == PLAYER_STATE.WALKING) {
-            //Gdx.app.log("WTF", "frame = "+animations.getWalking(facing).getKeyFrameIndex(walkTimer));
-            //Gdx.app.log("WTF", "timer = "+walkTimer);
             return (TextureRegion)animations.getWalking(facing).getKeyFrame(walkTimer);
         } else if (state == PLAYER_STATE.IDLE) {
             return animations.getStanding(facing);
