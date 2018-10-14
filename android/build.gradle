@@ -20,8 +20,8 @@ android {
         applicationId "eu.gsegado"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 5
-        versionName "0.0.4"
+        versionCode 6
+        versionName "0.0.5"
     }
     buildTypes {
         release {
@@ -94,10 +94,6 @@ eclipse {
     jdt {
         sourceCompatibility = 1.6
         targetCompatibility = 1.6
-    }
-
-    classpath {
-        plusConfigurations += [ project.configurations.compile ]
     }
 
 }
