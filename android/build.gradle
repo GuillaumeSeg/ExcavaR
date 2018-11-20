@@ -91,11 +91,6 @@ eclipse {
         }
     }
 
-    jdt {
-        sourceCompatibility = 1.6
-        targetCompatibility = 1.6
-    }
-
 }
 
 // sets up the Android Idea project, using the old Ant based build.

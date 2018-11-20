@@ -107,11 +107,6 @@ public class TiledMapFactory extends ApplicationAdapter implements InputProcesso
 // Render --
     @Override
     public void render() {
-        // test orangé 154 / 118 / 118
-        // test vert 154 / 180 / 128
-        // vert2 :  152f / 255f, 212f / 255f, 152f / 255f, 1f)
-        // test ++ 153 / 135 / 119
-
         Gdx.gl.glClearColor(153f / 255f, 135f / 255f, 119f / 255f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
@@ -145,7 +140,7 @@ public class TiledMapFactory extends ApplicationAdapter implements InputProcesso
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        Vector3 clickCoordinates = new Vector3(screenX,screenY,0);
+        /*Vector3 clickCoordinates = new Vector3(screenX,screenY,0);
         Vector3 touchViewport = camera.unproject(clickCoordinates);
         float deltaX = touchViewport.x - skeleton.getWorldX();
         float deltaY = touchViewport.y - skeleton.getWorldY();
@@ -161,7 +156,7 @@ public class TiledMapFactory extends ApplicationAdapter implements InputProcesso
             } else {
                 skeleton.move(DIRECTION.SOUTH);
             }
-        }
+        }*/
         return true;
     }
 
