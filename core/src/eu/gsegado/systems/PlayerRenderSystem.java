@@ -38,6 +38,14 @@ public class PlayerRenderSystem extends IteratingSystem {
             batch.draw(spriteComponent.getUp(),
                     positionComponent.getWorld().x,
                     positionComponent.getWorld().y);
+        } else if (facingComponent.getFacing() == DIRECTION.EAST && spriteComponent.getRight() != null) {
+            batch.draw(spriteComponent.getRight(),
+                    positionComponent.getWorld().x,
+                    positionComponent.getWorld().y);
+        } else if (facingComponent.getFacing() == DIRECTION.WEST && spriteComponent.getLeft() != null) {
+            batch.draw(spriteComponent.getLeft(),
+                    positionComponent.getWorld().x,
+                    positionComponent.getWorld().y);
         }
         batch.end();
     }

@@ -17,6 +17,7 @@ public class Level {
     private PooledEngine engine;
 
     Entity level;
+    Texture tiles;
 
     public Level(PooledEngine engine) {
         this.engine = engine;
@@ -27,7 +28,7 @@ public class Level {
     }
 
     public void create() {
-        Texture tiles = new Texture("forrestup.png");
+        tiles = new Texture("forrestup.png");
         TextureRegion[][] splitTiles = TextureRegion.split(tiles, 16, 16);
 
         level = new Entity();
@@ -54,5 +55,9 @@ public class Level {
 
         level.add(new MapComponent(map));
         engine.addEntity(level);
+    }
+
+    public void dispose() {
+        tiles.dispose();
     }
 }

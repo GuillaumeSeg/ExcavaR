@@ -6,7 +6,6 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -25,7 +24,6 @@ public class TiledMapFactory extends ApplicationAdapter implements InputProcesso
     private OrthographicCamera camera;
     private TiledMapRenderer renderer;
     private SpriteBatch batch;
-    private BitmapFont font;
     private Texture tiles;
     private TiledMap map;
     private eu.gsegado.models.Player skeleton;
@@ -48,7 +46,6 @@ public class TiledMapFactory extends ApplicationAdapter implements InputProcesso
 
         Gdx.input.setInputProcessor(this);
 
-        font = new BitmapFont();
         batch = new SpriteBatch();
 
         skeleton = new Player(0,1);  //y : (viewportHeight/2)+4 (centered)
@@ -116,10 +113,6 @@ public class TiledMapFactory extends ApplicationAdapter implements InputProcesso
         renderer.render();
 
         batch.setProjectionMatrix(camera.combined);
-        batch.begin();
-        font.draw(batch, "FPS: " + Gdx.graphics.getFramesPerSecond(), 10, 20);
-        skeleton.render();
-        batch.end();
     }
 
 // Events --

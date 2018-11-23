@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 
 class SpriteComponent(var down: TextureRegion? = null,
-                      var up: TextureRegion? = null) : Component {
+                      var up: TextureRegion? = null,
+                      var right: TextureRegion? = null,
+                      var left: TextureRegion? = null) : Component {
     val sprite: Sprite? = null
 }
